@@ -13,37 +13,28 @@ import Cocoa
 import PlaygroundSupport
 
 // Create canvas
-let canvas = Canvas(width: 400, height: 300)
+let canvas = Canvas(width: 300, height: 300)
 
-/*:
- ## Add your code below
- 
- Be sure to write human-readable code.
- 
- Use whitespace and comments as appropriate.
- */
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
+canvas.translate(byX: 150, byY: 150)
+// Create pumpkin
+canvas.drawShapesWithFill = true
+canvas.fillColor = Color.orange
+
+canvas.drawEllipse(centreX: 0, centreY: 0, width: 150, height: 90)
+for x in stride(from: 0, through: 150, by: 20) {
+    canvas.drawShapesWithFill = false
+    canvas.drawEllipse(centreX: 0, centreY: 0, width: x, height: 90)
+}
+
+canvas.drawShapesWithFill = true
+canvas.fillColor = Color.green
+canvas.drawRectangle(centreX: 0, centreY: 50, width: 10, height: 20)
+canvas.fillColor = Color.white
+canvas.drawEllipse(centreX: -20, centreY: 20, width: 15, height: 20)
+canvas.drawEllipse(centreX: 20, centreY: 20, width: 15, height: 20)
+canvas.drawEllipse(centreX: 0, centreY: -10, width: 20, height: 20)
 
 
-
-/*:
- ## Use source control
- To keep your work organized, and receive feedback, source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source_control.png "Source Control")
- */
-/*:
- ## Template code
- The code below is necessary to see results in the Assistant Editor at right.
- 
- Please do not remove.
- 
- If you don't see output, remember to show the Assistant Editor, and switch to Live View:
- 
- ![timeline](timeline.png "Timeline")
- */
 // Don't remove the code below
 PlaygroundPage.current.liveView = canvas.imageView
 

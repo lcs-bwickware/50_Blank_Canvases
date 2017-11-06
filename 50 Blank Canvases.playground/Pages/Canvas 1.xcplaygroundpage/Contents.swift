@@ -12,38 +12,58 @@
 import Cocoa
 import PlaygroundSupport
 
+
+// Create diamond shape
 // Create canvas
-let canvas = Canvas(width: 400, height: 300)
 
-/*:
- ## Add your code below
- 
- Be sure to write human-readable code.
- 
- Use whitespace and comments as appropriate.
- */
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
+let canvas = Canvas(width: 500, height: 500)
 
 
 
-/*:
- ## Use source control
- To keep your work organized, and receive feedback, source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source_control.png "Source Control")
- */
-/*:
- ## Template code
- The code below is necessary to see results in the Assistant Editor at right.
- 
- Please do not remove.
- 
- If you don't see output, remember to show the Assistant Editor, and switch to Live View:
- 
- ![timeline](timeline.png "Timeline")
- */
+
+// No fill
+
+canvas.drawShapesWithFill = false
+
+
+
+// Loop to set horizontal position
+
+for x in stride(from: 50, through: 450, by: 100) {
+
+    if x % 20 == 0 {
+        canvas.fillColor=Color.blue
+    } else {
+        canvas.fillColor=Color.orange
+    }
+
+
+    // Loop to set vertical position
+
+    for y in stride(from: 450, through: 50, by: -100) {
+
+       
+
+        
+
+       //  Draw five squares
+
+        for size in stride(from: 100, through: 20, by: -20) {
+
+              canvas.drawRectangle(centreX: x, centreY: y, width: size, height: size)
+
+        }
+
+}
+
+}
+
+
+
+
+
+
+
 // Don't remove the code below
 PlaygroundPage.current.liveView = canvas.imageView
 
